@@ -1,0 +1,33 @@
+# Entornos locales y credenciales (conservar las plantillas)
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.keystore
+*.jks
+key.properties
+
+# Dependencias, compilaciones y cobertura
+node_modules/
+build/
+dist/
+coverage/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.gradle/
+
+# Archivos locales del sistema y del editor
+.DS_Store
+._*
+.idea/
+*.iml
+*.log
+*.swp
+
+# Configuración local de herramientas
+.codex/
+.agents/
+.aws/
