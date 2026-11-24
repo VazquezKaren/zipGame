@@ -24,7 +24,6 @@ El servidor vuelve a validar cada solución antes de otorgar puntos.
 9. [Seguridad](#seguridad)
 10. [Solución de problemas](#solución-de-problemas)
 11. [Comandos de referencia](#comandos-de-referencia)
-12. [Publicar el repositorio](#publicar-el-repositorio)
 
 ---
 
@@ -388,59 +387,6 @@ El cambio solo afecta las partidas futuras; nunca modifica una partida en curso.
 | `flutter run -d chrome` | Ejecuta la app en Chrome |
 | `flutter analyze` | Análisis estático de Dart |
 | `flutter test` | Ejecuta las pruebas de Flutter |
-
----
-
-## Publicar el repositorio
-
-El proyecto se mantiene en un solo repositorio, con la API y la app en sus propias carpetas.
-Para crear el historial inicial, ejecuta desde la raíz del proyecto:
-
-```bash
-# Vista previa: muestra los grupos sin modificar Git
-bash scripts/crear_commits.sh --preview
-
-# Crea el repositorio en main y cinco commits separados
-bash scripts/crear_commits.sh
-```
-
-El script requiere una identidad de Git configurada y una carpeta sin repositorio previo.
-Usa mensajes con el formato `tipo(ámbito): descripción` (Conventional Commits),
-agrupa las pruebas con la implementación correspondiente y conserva los archivos de bloqueo
-de dependencias. Los cinco commits contienen:
-
-1. Configuración del repositorio y script de preparación.
-2. API, esquema de datos y pruebas del backend.
-3. Cliente Flutter para web y Android y sus pruebas.
-4. Documentación, práctica original y migraciones de respaldo como referencia.
-5. Capturas y registros existentes de pruebas.
-
-Los archivos `.env` y `.env.test`, las dependencias instaladas, las cachés y las
-compilaciones quedan excluidos. `.env.example` sí se incluye.
-
-En GitHub, crea un repositorio vacío, sin inicializar README, licencia ni `.gitignore`.
-Después sustituye `TU_USUARIO` y `TU_REPOSITORIO` en estos comandos:
-
-```bash
-git remote add origin https://github.com/TU_USUARIO/TU_REPOSITORIO.git
-git remote -v
-git push -u origin main
-```
-
-Si Git solicita autenticación por HTTPS, utiliza un token de acceso personal como
-contraseña o el gestor de credenciales configurado en tu equipo. No guardes el token
-en la URL del remoto ni en archivos del proyecto.
-
-Para cambios posteriores, revisa y añade únicamente los archivos relacionados:
-
-```bash
-git status
-git diff
-git add ruta/al/archivo
-git diff --cached
-git commit -m "fix(game): corregir validación del movimiento"
-git push
-```
 
 ---
 
